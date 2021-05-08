@@ -10,7 +10,7 @@ import ni.devotion.catfactsapp.room.CacheMapper
 import ni.devotion.catfactsapp.room.DogDao
 import ni.devotion.catfactsapp.utils.DataState
 
-class CatRepository constructor(
+class DogRepository constructor(
     private val dogDao: DogDao,
     private val dogRetrofit: DogRetrofit,
     private val cacheMapper: CacheMapper,

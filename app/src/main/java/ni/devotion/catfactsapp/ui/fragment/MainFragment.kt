@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import ni.devotion.catfactsapp.R
 import ni.devotion.catfactsapp.intent.Intent
 import ni.devotion.catfactsapp.ui.MainViewModel
-import ni.devotion.catfactsapp.utils.AdapterCats
+import ni.devotion.catfactsapp.utils.AdapterDogs
 import ni.devotion.catfactsapp.utils.DataState
 import javax.inject.Inject
 
@@ -29,7 +29,7 @@ constructor(
     private val viewModel: MainViewModel by viewModels()
 
     @Inject
-    lateinit var catsAdapter: AdapterCats
+    lateinit var catsAdapter: AdapterDogs
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,7 +48,7 @@ constructor(
 
         subscribeObservers()
         lifecycleScope.launch {
-            viewModel.userIntent.send(Intent.GetCatEvent)
+            viewModel.userIntent.send(Intent.GetDogEvent)
         }
     }
 
@@ -59,7 +59,7 @@ constructor(
                     is DataState.Success -> {
                         displayProgressBar(false)
 //                    appendCatID(dataState.data)
-                        catsAdapter.setCats(it.cats)
+                        catsAdapter.setDogs(it.dogs)
                     }
                     is DataState.Error -> {
                         displayProgressBar(false)

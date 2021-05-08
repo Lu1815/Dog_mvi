@@ -1,8 +1,6 @@
 package ni.devotion.catfactsapp.model
 
-data class Cat(
-    var id: String,
-    var url: String,
-    var width: Int,
-    var height: Int
+data class Dog(
+    var message: String,
+    var status: String
 )

@@ -10,7 +10,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import ni.devotion.catfactsapp.intent.Intent
-import ni.devotion.catfactsapp.repository.CatRepository
+import ni.devotion.catfactsapp.repository.DogRepository
 import ni.devotion.catfactsapp.utils.DataState
 import javax.inject.Inject
 
@@ -18,7 +18,7 @@ import javax.inject.Inject
 class MainViewModel
 @ViewModelInject
 constructor(
-    private val catRepository: CatRepository,
+    private val dogRepository: DogRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     val userIntent = Channel<Intent>(Channel.UNLIMITED)
@@ -34,8 +34,8 @@ constructor(
         viewModelScope.launch {
             userIntent.consumeAsFlow().collect { intnt ->
                 when (intnt) {
-                    is Intent.GetCatEvent -> {
-                        catRepository.getCats()
+                    is Intent.GetDogEvent -> {
+                        dogRepository.getDogs()
                             .onEach {
                                 _dataState.value = it
                             }

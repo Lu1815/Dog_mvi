@@ -8,7 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.internal.managers.ApplicationComponentManager
 import dagger.hilt.android.qualifiers.ApplicationContext
-import ni.devotion.catfactsapp.retrofit.CatRetrofit
+import ni.devotion.catfactsapp.retrofit.DogRetrofit
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -29,13 +29,13 @@ object RetrofitModule {
     @Provides
     fun provideRetrofit(gson: Gson): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl("https://api.thecatapi.com/v1/images/")
+            .baseUrl("https://dog.ceo/api/breeds/image/random/")
             .addConverterFactory(GsonConverterFactory.create(gson))
     }
 
     @Singleton
     @Provides
-    fun provideCatService(retrofit: Retrofit.Builder): CatRetrofit {
-        return retrofit.build().create(CatRetrofit::class.java)
+    fun provideDogService(retrofit: Retrofit.Builder): DogRetrofit {
+        return retrofit.build().create(DogRetrofit::class.java)
     }
 }

@@ -6,9 +6,9 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface CatDao {
+interface DogDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(catEntity: CatCacheEntity): Long
-    @Query("select * from gatito")
-    suspend fun get(): List<CatCacheEntity>
+    suspend fun insert(dogEntity: DogCacheEntity): Long
+    @Query("select * from perrito")
+    suspend fun get(): List<DogCacheEntity>
 }

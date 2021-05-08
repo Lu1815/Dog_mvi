@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import ni.devotion.catfactsapp.utils.AdapterCats
+import ni.devotion.catfactsapp.utils.AdapterDogs
 import javax.inject.Singleton
 
 @Module
@@ -14,7 +14,7 @@ object AdapterModule {
 
     @Singleton
     @Provides
-    fun provideAdapterGenres(application: Application): AdapterCats {
-        return AdapterCats()
+    fun provideAdapterGenres(application: Application): AdapterDogs {
+        return AdapterDogs()
     }
 }

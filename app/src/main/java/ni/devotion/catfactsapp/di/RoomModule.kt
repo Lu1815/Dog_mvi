@@ -8,8 +8,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.internal.managers.ApplicationComponentManager
 import dagger.hilt.android.qualifiers.ApplicationContext
-import ni.devotion.catfactsapp.room.CatDao
-import ni.devotion.catfactsapp.room.CatDatabase
+import ni.devotion.catfactsapp.room.DogDao
+import ni.devotion.catfactsapp.room.DogDatabase
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
@@ -18,14 +18,14 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun provideCatDb(@ApplicationContext context: Context): CatDatabase {
+    fun provideCatDb(@ApplicationContext context: Context): DogDatabase {
         return Room
-            .databaseBuilder(context, CatDatabase::class.java, CatDatabase.DATABASE_NAME).fallbackToDestructiveMigration().build()
+            .databaseBuilder(context, DogDatabase::class.java, DogDatabase.DATABASE_NAME).fallbackToDestructiveMigration().build()
     }
 
     @Singleton
     @Provides
-    fun provideCatDao(catDatabase: CatDatabase): CatDao {
-        return catDatabase.catDao()
+    fun provideCatDao(DogDatabase: DogDatabase): DogDao {
+        return DogDatabase.dogDao()
     }
 }

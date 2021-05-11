@@ -29,7 +29,7 @@ object RetrofitModule {
     @Provides
     fun provideRetrofit(gson: Gson): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl("https://dog.ceo/api/breeds/image/random/")
+            .baseUrl("https://dog.ceo/api/breeds/image/")
             .addConverterFactory(GsonConverterFactory.create(gson))
     }
 

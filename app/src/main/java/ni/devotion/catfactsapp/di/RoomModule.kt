@@ -18,14 +18,14 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun provideCatDb(@ApplicationContext context: Context): DogDatabase {
+    fun provideDogDb(@ApplicationContext context: Context): DogDatabase {
         return Room
             .databaseBuilder(context, DogDatabase::class.java, DogDatabase.DATABASE_NAME).fallbackToDestructiveMigration().build()
     }
 
     @Singleton
     @Provides
-    fun provideCatDao(DogDatabase: DogDatabase): DogDao {
+    fun provideDogDao(DogDatabase: DogDatabase): DogDao {
         return DogDatabase.dogDao()
     }
 }
